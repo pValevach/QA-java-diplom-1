@@ -1,4 +1,3 @@
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,7 +39,7 @@ public class IngredientTest {
     public void getPriceTest() {
         float actualPrice = ingredient.getPrice();
 
-        Assert.assertEquals(price, actualPrice, 0);
+        assertEquals(price, actualPrice, 0);
     }
 
     @Test

@@ -1,4 +1,4 @@
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,9 +29,10 @@ public class BurgerTest {
 
     @Test
     public void setBunTest() {
+        bun = new Bun("Test",10);
         burger.setBuns(bun);
 
-        Assert.assertEquals("setBuns's method error, class 'burger'", bun, burger.bun);
+        assertEquals("setBuns's method error, class 'burger'", bun, burger.bun);
     }
 
     @Test
@@ -41,7 +42,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient1);
         int actualSize = burger.ingredients.size();
 
-        Assert.assertEquals("addIngredient's method error, class 'burger'", expectedSize, actualSize);
+        assertEquals("addIngredient's method error, class 'burger'", expectedSize, actualSize);
     }
 
     @Test
@@ -52,7 +53,7 @@ public class BurgerTest {
         burger.removeIngredient(0);
         int actualSize = burger.ingredients.size();
 
-        Assert.assertEquals("removeIngredient's method error, class 'burger'", expectedSize, actualSize);
+        assertEquals("removeIngredient's method error, class 'burger'", expectedSize, actualSize);
     }
 
     @Test
@@ -68,8 +69,8 @@ public class BurgerTest {
         Object expectedIngredient = ingredient1;
         Object actualIngredient = burger.ingredients.get(1);
 
-        Assert.assertEquals("removeIngredient's method error, class 'burger'", expectedIngredient, actualIngredient);
-        Assert.assertEquals(2, burger.ingredients.size());
+        assertEquals("removeIngredient's method error, class 'burger'", expectedIngredient, actualIngredient);
+        assertEquals(2, burger.ingredients.size());
     }
 
     @Test
@@ -89,7 +90,7 @@ public class BurgerTest {
         float expectedPrice = 7;
         float actualPrice = burger.getPrice();
 
-        Assert.assertEquals("getPrice's method error, class 'burger'", expectedPrice, actualPrice, 0);
+        assertEquals("getPrice's method error, class 'burger'", expectedPrice, actualPrice, 0);
     }
 
     @Test
@@ -116,12 +117,10 @@ public class BurgerTest {
         String expectedReceipt = "(==== Булочка с корицей ====)\r\n" +
                 "= sauce Хот-чили =\r\n" +
                 "= filling Говяжья котлетка =\r\n" +
-                "(==== Булочка с корицей ====)\r\n" +
-                "\r\n" +
-                "Price: 300,000000\r\n";
+                "(==== Булочка с корицей ====)\r\n" + String.format("%nPrice: %f%n", burgerPrice);
 
         String actualReceipt = burger.getReceipt();
 
-        Assert.assertEquals("getReceipt's method error, class 'burger'", expectedReceipt, actualReceipt);
+        assertEquals("getReceipt's method error, class 'burger'", expectedReceipt, actualReceipt);
     }
 }

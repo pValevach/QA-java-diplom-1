@@ -1,4 +1,4 @@
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -22,6 +22,6 @@ public class IngredientTypeTest {
 
     @Test
     public void checkIngredientTypeEnum() {
-        Assert.assertEquals("No enum constant", expectedType, IngredientType.valueOf(expectedType).toString());
+        assertEquals("No enum constant", expectedType, IngredientType.valueOf(expectedType).toString());
     }
 }
